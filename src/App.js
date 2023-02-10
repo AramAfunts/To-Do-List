@@ -1,6 +1,8 @@
 import React from "react";
-import Header from "./components/Header";
 import TaskList from "./components/TaskList";
+import { Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import Trash from "./pages/Trash";
 
 function App() {
   const [tasksList, setTasksList] = React.useState([
@@ -9,12 +11,28 @@ function App() {
     { key: 3, task: "Learn Redux Toolkit" },
   ]);
 
+  const [deletedItems, setDeletedItems] = React.useState([]);
+
+  const onDeleteTask = (deletedTask) => {
+    setTasksList((prev) => prev.filter((task) => task.key !== deletedTask.key));
+    setDeletedItems((prev) => [...prev, deletedTask]);
+  };
+
   return (
     <div className="App">
-      <div className="wrapper">
-        <Header />
-        <TaskList tasksList={tasksList} />
-      </div>
+      <Routes>
+        <Route
+          path=""
+          element={
+            <Home
+              taskList={
+                <TaskList tasksList={tasksList} onDeleteTask={onDeleteTask} />
+              }
+            />
+          }
+        />
+        <Route path="/trash" element={<Trash deletedItems={deletedItems}/>} />
+      </Routes>
     </div>
   );
 }
