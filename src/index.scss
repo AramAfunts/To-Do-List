@@ -1,7 +1,7 @@
 body {
   margin: 0;
   background: rgb(255, 123, 0);
-  font-family: 'Roboto Slab', serif;
+  font-family: "Roboto Slab", serif;
 }
 
 .wrapper {
@@ -13,6 +13,24 @@ body {
   margin: auto;
   margin-top: 50px;
   margin-bottom: 50px;
+
+  .emptyCompletedList {
+    margin: 50px;
+    padding: 0;
+    text-align: center;
+  }
+
+  .emptyDeletedList {
+    margin: 50px;
+    padding: 0;
+    text-align: center;
+  }
+
+  .emptyTasksList {
+    margin: 50px;
+    padding: 0;
+    text-align: center;
+  }
 }
 
 header {
@@ -29,11 +47,15 @@ header {
     margin-left: 30px;
   }
 
-  img {
-    margin: 20px;
-    cursor: pointer;
-  }
+  ul {
+    display: flex;
+    list-style-type: none;
 
+    li {
+      margin-right: 20px;
+      cursor: pointer;
+    }
+  }
 }
 
 .task {
@@ -63,9 +85,26 @@ header {
   border: 2px solid chocolate;
   border-radius: 20px;
   margin: 50px;
-  
+
   h2 {
     margin: auto;
     padding: 10px;
+  }
+}
+
+.completedTask {
+  display: flex;
+  border: 2px solid green;
+  border-radius: 20px;
+  margin: 50px;
+  justify-content: space-between;
+
+  h2 {
+    color: black;
+    margin: 10px;
+  }
+
+  img {
+    margin: 15px;
   }
 }

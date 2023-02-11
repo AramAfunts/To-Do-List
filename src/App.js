@@ -1,8 +1,8 @@
 import React from "react";
-import TaskList from "./components/TaskList";
 import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Trash from "./pages/Trash";
+import Completed from "./pages/Completed";
 
 function App() {
   const [tasksList, setTasksList] = React.useState([
@@ -12,10 +12,16 @@ function App() {
   ]);
 
   const [deletedItems, setDeletedItems] = React.useState([]);
+  const [completedItems, setCompletedItems] = React.useState([]);
 
   const onDeleteTask = (deletedTask) => {
     setTasksList((prev) => prev.filter((task) => task.key !== deletedTask.key));
     setDeletedItems((prev) => [...prev, deletedTask]);
+  };
+
+  const onCompleteTask = (completedTask) => {
+    setTasksList((prev) => prev.filter((task) => task.key !== completedTask.key));
+    setCompletedItems((prev) => [...prev, completedTask]);
   };
 
   return (
@@ -25,13 +31,17 @@ function App() {
           path=""
           element={
             <Home
-              taskList={
-                <TaskList tasksList={tasksList} onDeleteTask={onDeleteTask} />
-              }
+              tasksList={tasksList}
+              onDeleteTask={onDeleteTask}
+              onCompleteTask={onCompleteTask}
             />
           }
         />
-        <Route path="/trash" element={<Trash deletedItems={deletedItems}/>} />
+        <Route
+          path="/completed"
+          element={<Completed completedItems={completedItems} />}
+        />
+        <Route path="/trash" element={<Trash deletedItems={deletedItems} />} />
       </Routes>
     </div>
   );

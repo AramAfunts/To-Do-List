@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function TaskList({ tasksList, onDeleteTask }) {
+export default function TaskList({ tasksList, onDeleteTask, onCompleteTask }) {
   return tasksList.map((taskItem) => (
     <div key={taskItem.key} className="task">
       <h2>{taskItem.task}</h2>
@@ -11,6 +11,10 @@ export default function TaskList({ tasksList, onDeleteTask }) {
             alt="uncompleted"
             width={20}
             height={20}
+            onClick={() => {
+              onCompleteTask(taskItem);
+              console.log(`Task '${taskItem.task}' was completed.`)
+            }}
           />
         </li>
         <li>
@@ -21,7 +25,7 @@ export default function TaskList({ tasksList, onDeleteTask }) {
             height={20}
             onClick={() => {
               onDeleteTask(taskItem);
-              console.log(`Item ${taskItem.key} was deleted.`);
+              console.log(`Item #${taskItem.key} was deleted.`);
             }}
           />
         </li>
