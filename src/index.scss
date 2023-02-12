@@ -13,6 +13,51 @@ body {
   margin: auto;
   margin-top: 50px;
   margin-bottom: 50px;
+  overflow: auto;
+  flex-wrap: wrap;
+
+  form {
+    margin: 10px;
+    padding: 10px;
+    overflow: auto;
+    flex-wrap: wrap;
+    text-align: center;
+
+    input {
+      margin-right: 30px;
+    }
+
+    .valueInput {
+      width: 70%;
+      padding: 10px;
+      font-size: 12px;
+      border-radius: 10px;
+      border: 1px solid black;
+      font-family: monospace;
+      text-align: center;
+    }
+
+    .submitInput {
+      border: 1px solid black;
+      background: orange;
+      padding: 10px;
+      cursor: pointer;
+      font-size: 12px;
+      border-radius: 10px;
+      font-family: monospace;
+    }
+
+    .submitInput:hover {
+      border: 1px solid orange;
+      background: black;
+      color: orange;
+      padding: 10px;
+      cursor: pointer;
+      font-size: 12px;
+      border-radius: 10px;
+      font-family: monospace;
+    }
+  }
 
   .emptyCompletedList {
     margin: 50px;
@@ -82,7 +127,7 @@ header {
 
 .deletedTask {
   display: flex;
-  border: 2px solid chocolate;
+  border: 2px solid red;
   border-radius: 20px;
   margin: 50px;
 

@@ -1,11 +1,24 @@
 import React from "react";
 import Header from "../components/Header";
 import TaskList from "../components/TaskList";
+import Form from "../components/Form";
 
-export default function Home({ tasksList, onDeleteTask, onCompleteTask }) {
+export default function Home({
+  tasksList,
+  onDeleteTask,
+  onCompleteTask,
+  taskValue,
+  handleTaskChange,
+  handleSubmit,
+}) {
   return (
     <div className="wrapper">
       <Header />
+      <Form
+        taskValue={taskValue}
+        handleTaskChange={handleTaskChange}
+        handleSubmit={handleSubmit}
+      />
       {tasksList.length > 0 ? (
         <TaskList
           tasksList={tasksList}
@@ -15,7 +28,7 @@ export default function Home({ tasksList, onDeleteTask, onCompleteTask }) {
       ) : (
         <div className="emptyTasksList">
           <h1>You don't have any tasks to do.</h1>
-          <img src="/img/good.png" alt="good" width={200} height={200} />
+          <img src="img/good.png" alt="good" width={200} height={200} />
         </div>
       )}
     </div>

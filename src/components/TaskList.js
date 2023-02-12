@@ -7,7 +7,7 @@ export default function TaskList({ tasksList, onDeleteTask, onCompleteTask }) {
       <ul>
         <li>
           <img
-            src="/img/uncompleted.png"
+            src="img/uncompleted.png"
             alt="uncompleted"
             width={20}
             height={20}
@@ -19,7 +19,7 @@ export default function TaskList({ tasksList, onDeleteTask, onCompleteTask }) {
         </li>
         <li>
           <img
-            src="/img/trash.png"
+            src="img/trash.png"
             alt="trash"
             width={20}
             height={20}

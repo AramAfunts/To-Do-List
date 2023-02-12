@@ -11,7 +11,7 @@ export default function Header() {
         <li>
           <Link to="/completed">
             <img
-              src="/img/uncompleted.png"
+              src="img/uncompleted.png"
               alt="completed"
               width={20}
               height={20}
@@ -20,7 +20,7 @@ export default function Header() {
         </li>
         <li>
           <Link to="/trash">
-            <img src="/img/trash.png" alt="trash" width={20} height={20} />
+            <img src="img/trash.png" alt="trash" width={20} height={20} />
           </Link>
         </li>
       </ul>
