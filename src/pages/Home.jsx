@@ -2,6 +2,7 @@ import React from "react";
 import Header from "../components/Header";
 import TaskList from "../components/TaskList";
 import Form from "../components/Form";
+import Modal from "../components/Modal";
 
 export default function Home({
   tasksList,
@@ -10,10 +11,13 @@ export default function Home({
   taskValue,
   handleTaskChange,
   handleSubmit,
+  isModalOpened,
+  onCloseModal,
 }) {
   return (
     <div className="wrapper">
       <Header />
+      {isModalOpened && <Modal onCloseModal={onCloseModal} />}
       <Form
         taskValue={taskValue}
         handleTaskChange={handleTaskChange}

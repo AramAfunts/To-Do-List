@@ -153,3 +153,37 @@ header {
     margin: 15px;
   }
 }
+
+.modal {
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .modalContent {
+    padding: 20px;
+    border-radius: 12px;
+    background-color: orange;
+    height: 200px;
+    width: 400px;
+    text-align: center;
+    font-style: italic;
+  }
+
+  .modalClose {
+    width: 400px;
+    height: 10%;
+    text-align: right;
+
+    img {
+      margin-top: 3px;
+      margin-right: 7px;
+      cursor: pointer;
+    }
+  }
+}

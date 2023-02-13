@@ -9,6 +9,7 @@ function App() {
   const [deletedItems, setDeletedItems] = React.useState([]);
   const [completedItems, setCompletedItems] = React.useState([]);
   const [taskValue, setTaskValue] = React.useState("");
+  const [isModalOpened, setIsModalOpened] = React.useState(false);
 
   const onDeleteTask = (deletedTask) => {
     setTasksList((prev) => prev.filter((task) => task.key !== deletedTask.key));
@@ -26,6 +27,10 @@ function App() {
     setTaskValue(e.target.value);
   };
 
+  const onCloseModal = () => {
+    setIsModalOpened(false);
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (tasksList.length > 0) {
@@ -36,7 +41,7 @@ function App() {
         setTaskValue("");
       } else {
         setTaskValue("");
-        alert("Task length must be more than 0 and less than 40 symbols.");
+        setIsModalOpened(true);
       }
     } else {
       if (taskValue.length <= 40 && taskValue.length > 0) {
@@ -46,7 +51,7 @@ function App() {
         setTaskValue("");
       } else {
         setTaskValue("");
-        alert("Task length must be more than 0 and less than 40 symbols.");
+        setIsModalOpened(true);
       }
     }
   };
@@ -64,6 +69,8 @@ function App() {
               taskValue={taskValue}
               handleTaskChange={handleTaskChange}
               handleSubmit={handleSubmit}
+              isModalOpened={isModalOpened}
+              onCloseModal={onCloseModal}
             />
           }
         />
