@@ -4,6 +4,32 @@ body {
   font-family: "Roboto Slab", serif;
 }
 
+@media only screen and (max-width: 600px) {
+  header {
+    overflow: auto;
+    flex-wrap: wrap;
+
+    h1 {
+      font-size: 20px;
+      padding-top: 10px;
+    }
+
+  }
+
+  form {
+    input {
+      margin-top: 10px;
+    }
+  }
+
+  
+  .task {
+    overflow: auto;
+    flex-wrap: wrap;
+    text-align: center;
+  }
+}
+
 .wrapper {
   display: block;
   width: 70%;
